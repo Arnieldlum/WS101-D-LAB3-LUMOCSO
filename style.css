@@ -1,0 +1,202 @@
+*{
+    box-sizing:border-box}
+
+html,body{
+    height:100%}
+
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#071024 120%);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:32px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+
+:root{
+  --bg:#0f1724; /* dark navy */
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#00b4d8;
+  --glass: rgba(255,255,255,0.04);
+  --soft:#111827;
+  --radius:14px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.container{
+  width:100%;
+  max-width:960px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 10px 30px rgba(2,6,23,0.6);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+header{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.avatar{
+  width:96px;
+  height:96px;
+  border-radius:12px;
+  flex:0 0 96px;
+  background:linear-gradient(135deg,var(--accent),#7c4dff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:28px;
+  color:#f9fcff;
+  box-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover; /* keeps aspect ratio */
+}
+
+
+.intro h1{
+    margin:0;
+    font-size:20px}
+
+.intro p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+.layout{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:20px;
+  align-items:start;
+}
+
+.card{
+  background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  padding:18px;
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.about h2,.education h2,.skills h2,.contact h2{
+    margin-top:0;
+    margin-bottom:10px}
+
+.about p{color:var(--muted);line-height:1.55}
+
+.education .school{
+    margin-bottom:12px}
+
+.school h3{
+    margin:0;
+    font-size:15px}
+
+.school p{
+    margin:6px 0 0;color:var(--muted);
+    font-size:13px}
+
+.skills .skill{margin-bottom:12px}
+
+.skill .meta{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:6px
+}
+
+.bar{height:10px;
+    background:var(--glass);
+    border-radius:999px;
+    overflow:hidden}
+
+.bar > i{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--accent),#7c4dff);
+    border-radius:999px}
+
+.contact .line{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px}
+
+.contact a{
+    color:#dff7ff;
+    text-decoration:none
+}
+.icon small{
+    width:36px;
+    height:36px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.02);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--muted);
+    font-size:14px}
+
+footer{
+    margin-top:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:var(--muted);
+    font-size:13px}
+
+/* responsive */
+@media (max-width: 1200px){
+    .container{
+        display: grid;
+        grid-template-columns: repeat(4, lfr);
+
+    }
+}
+.avatar{
+  width:96px;
+  height:96px;
+  border-radius:50%;   /* make container circular */
+  flex:0 0 96px;
+  background:linear-gradient(135deg,var(--accent),#7c4dff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 18px rgba(0,0,0,0.6);
+  overflow: hidden;    /* IMPORTANT: clips image to circle */
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius:50%;   /* make image circular */
+  object-fit: cover;
+}
+
+
+/* utility */
+.muted{color:var(--muted)}
+.tag{
+    display:inline-block;
+    background:rgba(255,255,255,0.03);
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:13px;
+    margin-right:8px}
+
+/* print-friendly tweaks */
+@media print{
+  body{background:white;
+    color:black}
+  .container{
+    box-shadow:none;
+    border:none}
+}
